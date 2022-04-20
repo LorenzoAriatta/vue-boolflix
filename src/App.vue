@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <HeaderComponent />
-    <MainComponent />
+    <HeaderComponent @search="searchedText" />
+    <MainComponent v-for="movie in movies" :key="movie.id" :movies="movies" />
   </div>
 </template>
 
@@ -20,30 +20,32 @@ export default {
   data() {
     return {
       apiURL: "https://api.themoviedb.org/3/search/",
+      query: "",
       series: [],
       movies: [],
     };
   },
   methods: {
-    getMovies() {},
     getAPI() {
       const params = {
+        query: this.query,
         api_key: "2cc6fd43bbe95b9acd793c529dab5d34",
         language: "it-IT",
-        query: "lo",
       };
       axios
         .get(this.apiURL + "movie", { params })
         .then((response) => {
-          console.log(response.data);
+          console.log(response.data.results);
         })
         .catch((error) => {
           console.log(error);
         });
     },
-  },
-  mounted() {
-    this.getAPI();
+    searchedText(textToSearch) {
+      this.query = textToSearch;
+      console.log(this.query);
+      this.getAPI();
+    },
   },
 };
 </script>
