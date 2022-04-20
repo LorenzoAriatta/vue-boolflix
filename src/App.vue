@@ -42,10 +42,16 @@ export default {
         axios
           .get(this.apiURL + type, { params })
           .then((response) => {
+            if (type == "movie") {
+              console.log("array film", this.movies);
+              this.movies = response.data.results;
+            } else {
+              console.log("array serie", this.series);
+              this.series = response.data.results;
+            }
             console.log(response.data.results);
-            this.movies = response.data.results;
             //console.log("ARRAY risultati ricerca", this.movies);
-            console.log(type);
+            //console.log(type);
           })
           .catch((error) => {
             console.log(error);
@@ -54,7 +60,7 @@ export default {
     },
     searchedText(textToSearch) {
       this.query = textToSearch;
-      console.log(this.query);
+      //console.log(this.query);
       this.getMoviesApi();
       this.getSeriesApi();
     },
@@ -70,7 +76,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
