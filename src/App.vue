@@ -36,6 +36,8 @@ export default {
         .get(this.apiURL + "movie", { params })
         .then((response) => {
           console.log(response.data.results);
+          this.movies = response.data.results;
+          console.log("ARRAY DI MOVIES", this.movies);
         })
         .catch((error) => {
           console.log(error);
