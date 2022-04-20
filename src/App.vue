@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderComponent @search="searchedText" />
-    <MainComponent v-for="movie in movies" :key="movie.id" :movies="movies" />
+    <MainComponent :movies="movies" :series="series" />
   </div>
 </template>
 
@@ -26,27 +26,37 @@ export default {
     };
   },
   methods: {
-    getAPI() {
-      const params = {
-        query: this.query,
-        api_key: "2cc6fd43bbe95b9acd793c529dab5d34",
-        language: "it-IT",
-      };
-      axios
-        .get(this.apiURL + "movie", { params })
-        .then((response) => {
-          console.log(response.data.results);
-          this.movies = response.data.results;
-          console.log("ARRAY DI MOVIES", this.movies);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    getMoviesApi() {
+      this.getAPI("movie");
+    },
+    getSeriesApi() {
+      this.getAPI("tv");
+    },
+    getAPI(type) {
+      if (this.query.length > 0) {
+        const params = {
+          query: this.query,
+          api_key: "2cc6fd43bbe95b9acd793c529dab5d34",
+          language: "it-IT",
+        };
+        axios
+          .get(this.apiURL + type, { params })
+          .then((response) => {
+            console.log(response.data.results);
+            this.movies = response.data.results;
+            //console.log("ARRAY risultati ricerca", this.movies);
+            console.log(type);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     },
     searchedText(textToSearch) {
       this.query = textToSearch;
       console.log(this.query);
-      this.getAPI();
+      this.getMoviesApi();
+      this.getSeriesApi();
     },
   },
 };
