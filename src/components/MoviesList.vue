@@ -10,7 +10,7 @@
         <h3>{{ movie.title }}</h3>
         <h5>{{ movie.original_title }}</h5>
         <p>{{ movie.original_language }}</p>
-        <p>{{ movie.vote_average }}</p>
+        <p>{{ integerVote() }}</p>
       </div>
     </div>
   </div>
@@ -19,9 +19,21 @@
 <script>
 export default {
   name: "MoviesList",
+  data() {
+    return {
+      vote: "",
+    };
+  },
   props: {
     movie: Object,
     imgPath: String,
+  },
+  methods: {
+    integerVote() {
+      const decimalVote = this.movie.vote_average;
+      const vote = Math.round(decimalVote / 2);
+      return vote;
+    },
   },
 };
 </script>

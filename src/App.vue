@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// 2cc6fd43bbe95b9acd793c529dab5d34 apiKey
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import MainComponent from "@/components/MainComponenent.vue";
 import axios from "axios";
@@ -75,6 +74,5 @@ export default {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
 }
 </style>
