@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <i v-for="index in starValue" :key="index" class="fa-solid fa-star"></i>
+  <div class="d-flex">
+    <h6 class="me-2"><strong>Voto:</strong></h6>
+    <i
+      v-for="index in starValue"
+      :key="index"
+      class="fa-solid fa-star me-2"
+    ></i>
   </div>
 </template>
 
@@ -20,5 +25,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+i {
+  color: yellow;
+  font-size: 20px;
+}
 </style>
