@@ -9,7 +9,11 @@
       <div class="txt-card">
         <h3>{{ movie.title }}</h3>
         <h5>{{ movie.original_title }}</h5>
-        <p>{{ movie.original_language }}</p>
+        <!-- <p>{{ movie.original_language }}</p> -->
+        <img
+          v-if="movie.original_language == 'en' ? 'GB' : 'Not found'"
+          :src="flag + movie.original_language.toLowerCase()"
+        />
         <StarComp :vote="this.movie.vote_average" />
       </div>
     </div>
@@ -25,6 +29,7 @@ export default {
     return {
       vote: "",
       star: "",
+      flag: `https://countryflagsapi.com/png/`,
     };
   },
   components: {
@@ -40,9 +45,11 @@ export default {
 <style scoped lang="scss">
 .card {
   max-height: 550px;
+  border-radius: 5px;
 }
 img {
   position: relative;
+  border-radius: 5px;
 }
 .txt-card {
   position: absolute;
