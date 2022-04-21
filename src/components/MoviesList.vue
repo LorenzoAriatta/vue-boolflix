@@ -10,10 +10,7 @@
         <h3>{{ movie.title }}</h3>
         <h5>{{ movie.original_title }}</h5>
         <!-- <p>{{ movie.original_language }}</p> -->
-        <img
-          v-if="movie.original_language == 'en' ? 'GB' : 'Not found'"
-          :src="flag + movie.original_language.toLowerCase()"
-        />
+        <gb-flag code="fr" size="medium" />
         <StarComp :vote="this.movie.vote_average" />
       </div>
     </div>
@@ -29,7 +26,6 @@ export default {
     return {
       vote: "",
       star: "",
-      flag: `https://countryflagsapi.com/png/`,
     };
   },
   components: {
