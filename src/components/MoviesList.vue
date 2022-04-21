@@ -10,45 +10,29 @@
         <h3>{{ movie.title }}</h3>
         <h5>{{ movie.original_title }}</h5>
         <p>{{ movie.original_language }}</p>
-        <p>{{ integerVote() }}</p>
-        <p>{{ starVote() }}</p>
+        <StarComp :vote="this.movie.vote_average" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import StarComp from "@/components/StarComp.vue";
+
 export default {
   name: "MoviesList",
   data() {
     return {
       vote: "",
+      star: "",
     };
+  },
+  components: {
+    StarComp,
   },
   props: {
     movie: Object,
     imgPath: String,
-  },
-  methods: {
-    integerVote() {
-      const decimalVote = this.movie.vote_average;
-      const vote = Math.round(decimalVote / 2);
-      return vote;
-    },
-    starVote() {
-      const star = <i class="fa-regular fa-star"></i>;
-      if (this.vote == 1) {
-        star;
-      } else if (this.vote == 2) {
-        star + star;
-      } else if (this.vote == 3) {
-        star + star + star;
-      } else if (this.vote == 4) {
-        star + star + star + star;
-      } else if (this.vote == 5) {
-        star + star + star + star + star;
-      }
-    },
   },
 };
 </script>

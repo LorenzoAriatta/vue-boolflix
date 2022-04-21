@@ -11,14 +11,20 @@
         <h5>{{ serie.original_name }}</h5>
         <p>{{ serie.original_language }}</p>
         <p>{{ serie.vote_average }}</p>
+        <StarComp :vote="this.serie.vote_average" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import StarComp from "@/components/StarComp.vue";
+
 export default {
   name: "SeriesList",
+  components: {
+    StarComp,
+  },
   props: {
     serie: Object,
     imgPath: String,
