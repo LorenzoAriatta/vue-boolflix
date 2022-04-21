@@ -10,7 +10,10 @@
         <h3>{{ serie.name }}</h3>
         <h5>{{ serie.original_name }}</h5>
         <p>{{ serie.original_language }}</p>
-        <p>{{ serie.vote_average }}</p>
+        <img
+          :src="require(`@/assets/${serie.original_language}.png`)"
+          :alt="serie.original_language"
+        />
         <StarComp :vote="this.serie.vote_average" />
       </div>
     </div>

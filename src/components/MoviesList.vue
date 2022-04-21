@@ -9,8 +9,11 @@
       <div class="txt-card">
         <h3>{{ movie.title }}</h3>
         <h5>{{ movie.original_title }}</h5>
-        <!-- <p>{{ movie.original_language }}</p> -->
-        <gb-flag code="fr" size="medium" />
+        <p>{{ movie.original_language }}</p>
+        <img
+          :src="require(`@/assets/${movie.original_language}.png`)"
+          :alt="movie.original_language"
+        />
         <StarComp :vote="this.movie.vote_average" />
       </div>
     </div>
