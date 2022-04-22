@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card">
+    <div :class="getMovieId()" class="card">
       <img
         class="h-100 poster missImg"
         src="https://miro.medium.com/max/800/1*hFwwQAW45673VGKrMPE2qQ.png"
@@ -48,6 +48,15 @@ export default {
   props: {
     movie: Object,
     imgPath: String,
+    id: Number,
+  },
+  methods: {
+    getMovieId() {
+      const id = this.movie.id;
+      console.log("ID ID ID ID ID ID ID ", id);
+      //this.$emit("getMovieId", this.movieId);
+      return this.id;
+    },
   },
 };
 </script>
