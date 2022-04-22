@@ -53,9 +53,8 @@ export default {
   methods: {
     getMovieId() {
       const id = this.movie.id;
-      console.log("ID ID ID ID ID ID ID ", id);
-      //this.$emit("getMovieId", this.movieId);
-      return this.id;
+      console.log("ID MOVIE ", id);
+      this.$emit("getMovieId", this.movieId);
     },
   },
 };
