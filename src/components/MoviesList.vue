@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="card h-100">
+    <div class="card">
+      <img
+        class="h-100 poster missImg"
+        src="https://miro.medium.com/max/800/1*hFwwQAW45673VGKrMPE2qQ.png"
+        alt=""
+      />
       <img
         class="h-100 poster"
         :src="imgPath + movie.poster_path"
@@ -49,13 +54,20 @@ export default {
 
 <style scoped lang="scss">
 .card {
-  max-height: 550px;
+  position: relative;
+  height: 550px;
   border-radius: 5px;
   background-color: black;
 }
+.missImg {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  max-height: 305px;
+}
 .poster {
-  position: relative;
   border-radius: 5px;
+  z-index: 1;
 }
 .txt-card {
   position: absolute;
@@ -77,5 +89,8 @@ export default {
 .card:hover .poster {
   transition: 0.4s;
   opacity: 20%;
+  &.missImg {
+    display: none;
+  }
 }
 </style>

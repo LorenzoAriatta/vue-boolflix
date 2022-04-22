@@ -44,7 +44,7 @@ export default {
             if (type == "movie" && response.status === 200) {
               console.log("array film", this.movies);
               this.movies = response.data.results;
-            } else {
+            } else if (type == "tv" && response.status === 200) {
               console.log("array serie", this.series);
               this.series = response.data.results;
             }

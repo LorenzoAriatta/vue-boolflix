@@ -1,27 +1,30 @@
 <template>
-  <div class="container d-flex flex-wrap">
-    <div class="row flex-wrap py-5">
-      <h2 v-show="movies.length > 0">Films</h2>
-      <MoviesList
-        class="col-4 w-33 mb-4"
-        v-for="movie in movies"
-        :key="movie.id"
-        :movie="movie"
-        :imgPath="linkImg"
-      />
+  <main>
+    <div class="container d-flex flex-wrap">
+      <div class="row w-100 flex-wrap py-5">
+        <h2 v-show="movies.length > 0">Films</h2>
+        <MoviesList
+          class="col-4 mb-4"
+          v-for="movie in movies"
+          :key="movie.id"
+          :movie="movie"
+          :imgPath="linkImg"
+        />
+      </div>
     </div>
-
-    <div class="row flex-wrap py-5">
-      <h2 v-show="series.length > 0">TV Series</h2>
-      <SeriesList
-        class="col-4 w-33 mb-4"
-        v-for="serie in series"
-        :key="serie.id"
-        :serie="serie"
-        :imgPath="linkImg"
-      />
+    <div class="container d-flex flex-wrap">
+      <div class="row w-100 flex-wrap py-5">
+        <h2 v-show="series.length > 0">TV Series</h2>
+        <SeriesList
+          class="col-4 mb-4"
+          v-for="serie in series"
+          :key="serie.id"
+          :serie="serie"
+          :imgPath="linkImg"
+        />
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -47,4 +50,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.w-card {
+  width: calc(100% / 3);
+}
 </style>
