@@ -2,12 +2,14 @@
   <div>
     <div class="card h-100">
       <img
-        class="w-100 h-100 poster"
+        class="h-100 poster"
         :src="imgPath + movie.poster_path"
         :alt="movie.title"
       />
       <div class="txt-card">
-        <h6><strong>Title:</strong> {{ movie.title }}</h6>
+        <h6 v-if="movie.title != movie.original_title">
+          <strong>Title:</strong> {{ movie.title }}
+        </h6>
         <h6><strong>Original Title:</strong> {{ movie.original_title }}</h6>
         <StarComp :vote="this.movie.vote_average" class="stars" />
         <p>
@@ -73,9 +75,7 @@ export default {
   display: block;
 }
 .card:hover .poster {
+  transition: 0.4s;
   opacity: 20%;
-}
-.stars:hover {
-  display: none;
 }
 </style>

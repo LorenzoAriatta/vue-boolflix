@@ -41,7 +41,7 @@ export default {
         axios
           .get(this.apiURL + type, { params })
           .then((response) => {
-            if (type == "movie") {
+            if (type == "movie" && response.status === 200) {
               console.log("array film", this.movies);
               this.movies = response.data.results;
             } else {
