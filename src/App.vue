@@ -20,6 +20,7 @@ export default {
     return {
       apiURL: "https://api.themoviedb.org/3/search/",
       query: "",
+      idCard: "",
       series: [],
       movies: [],
     };
@@ -48,7 +49,7 @@ export default {
               console.log("array serie", this.series);
               this.series = response.data.results;
             }
-            console.log(response.data.results);
+            //console.log(response.data.results);
             //console.log("ARRAY risultati ricerca", this.movies);
             //console.log(type);
           })

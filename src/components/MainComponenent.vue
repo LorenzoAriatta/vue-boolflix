@@ -1,8 +1,8 @@
 <template>
   <main>
     <div class="container d-flex flex-wrap">
-      <div class="row w-100 flex-wrap py-5">
-        <h2 v-show="movies.length > 0">Films</h2>
+      <div class="row w-100 flex-wrap py-5 text-white">
+        <h2 class="text-center" v-if="movies.length > 0">Films</h2>
         <MoviesList
           class="col-4 mb-4"
           v-for="movie in movies"
@@ -13,8 +13,8 @@
       </div>
     </div>
     <div class="container d-flex flex-wrap">
-      <div class="row w-100 flex-wrap py-5">
-        <h2 v-show="series.length > 0">TV Series</h2>
+      <div class="row w-100 flex-wrap py-5 text-white">
+        <h2 class="text-center" v-if="series.length > 0">TV Series</h2>
         <SeriesList
           class="col-4 mb-4"
           v-for="serie in series"

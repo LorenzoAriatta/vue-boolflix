@@ -86,7 +86,7 @@ export default {
 }
 .card:hover .poster {
   transition: 0.4s;
-  opacity: 20%;
+  opacity: 15%;
   &.missImg {
     display: none;
   }

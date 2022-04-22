@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="getMovieId()" class="card">
+    <div class="card">
       <img
         class="h-100 poster missImg"
         src="https://miro.medium.com/max/800/1*hFwwQAW45673VGKrMPE2qQ.png"
@@ -48,14 +48,16 @@ export default {
   props: {
     movie: Object,
     imgPath: String,
-    id: Number,
   },
   methods: {
     getMovieId() {
       const id = this.movie.id;
       console.log("ID MOVIE ", id);
-      this.$emit("getMovieId", this.movieId);
+      this.$emit("getID", id);
     },
+  },
+  mounted() {
+    this.getMovieId();
   },
 };
 </script>
@@ -96,7 +98,7 @@ export default {
 }
 .card:hover .poster {
   transition: 0.4s;
-  opacity: 20%;
+  opacity: 15%;
   &.missImg {
     display: none;
   }
