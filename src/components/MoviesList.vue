@@ -26,6 +26,7 @@
             class="ms-2"
           />
         </p>
+        <CastComp :movie="movie" />
         <h6 v-show="movie.overview.length > 0">
           <strong>Overwiev:</strong>
           <p class="overview">
@@ -39,25 +40,27 @@
 
 <script>
 import StarComp from "@/components/StarComp.vue";
+import CastComp from "@/components/CastComp.vue";
 
 export default {
   name: "MoviesList",
   components: {
     StarComp,
+    CastComp,
   },
   props: {
     movie: Object,
     imgPath: String,
   },
   methods: {
-    getMovieId() {
+    getId() {
       const id = this.movie.id;
-      console.log("ID MOVIE ", id);
-      this.$emit("getID", id);
+      //console.log("ID", id);
+      this.$emit("getId", id);
     },
   },
   mounted() {
-    this.getMovieId();
+    this.getId();
   },
 };
 </script>
